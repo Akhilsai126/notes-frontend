@@ -21,7 +21,7 @@ function ViewNote({ goHome }) {
             const data = await res.json();
 
             if (res.status === 200) {
-                setNote(data.note);
+                setNote(data.content);
                 setShowModal(true);
                 setMessage("");
             } else {
