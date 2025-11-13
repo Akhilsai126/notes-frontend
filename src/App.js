@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CreateNote from "./pages/CreateNote";
 import ViewNote from "./pages/ViewNote";
 
-const API_BASE_URL = process.env.REACT_APP_API_URL; // Use env variable
+const API_BASE_URL = process.env.REACT_APP_API_URL; // use environment variable
 
 function App() {
   const [page, setPage] = useState("home");
