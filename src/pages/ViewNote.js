@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ViewNote({ goHome }) {
+function ViewNote({ goHome, apiUrl }) {
     const [code, setCode] = useState("");
     const [note, setNote] = useState("");
     const [message, setMessage] = useState("");
@@ -13,11 +13,12 @@ function ViewNote({ goHome }) {
         }
 
         try {
-            const res = await fetch("http://localhost:5000/view", {
+            const res = await fetch(`${apiUrl}/view`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ code }),
             });
+
             const data = await res.json();
 
             if (res.status === 200) {

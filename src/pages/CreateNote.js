@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function CreateNote({ goHome }) {
+function CreateNote({ goHome, apiUrl }) {
     const [code, setCode] = useState("");
     const [note, setNote] = useState("");
     const [message, setMessage] = useState("");
@@ -12,11 +12,12 @@ function CreateNote({ goHome }) {
         }
 
         try {
-            const res = await fetch("http://localhost:5000/create", {
+            const res = await fetch(`${apiUrl}/create`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ code, content: note }),
             });
+
             const data = await res.json();
             setMessage(data.message);
 
@@ -73,3 +74,4 @@ function CreateNote({ goHome }) {
 }
 
 export default CreateNote;
+
