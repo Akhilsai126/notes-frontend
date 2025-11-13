@@ -17,12 +17,11 @@ function CreateNote({ goHome, apiUrl }) {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ code, content: note }),
             });
-
             const data = await res.json();
             setMessage(data.message);
 
             if (res.status === 200) {
-                setTimeout(() => goHome(), 1500); // Go back to home after 1.5s
+                setTimeout(() => goHome(), 1500);
             }
         } catch {
             setMessage("Error connecting to server.");
@@ -74,4 +73,3 @@ function CreateNote({ goHome, apiUrl }) {
 }
 
 export default CreateNote;
-

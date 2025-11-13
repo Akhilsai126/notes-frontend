@@ -18,7 +18,6 @@ function ViewNote({ goHome, apiUrl }) {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ code }),
             });
-
             const data = await res.json();
 
             if (res.status === 200) {
@@ -82,3 +81,4 @@ function ViewNote({ goHome, apiUrl }) {
 }
 
 export default ViewNote;
+
